@@ -2,7 +2,7 @@
 ;;
 ;; Copyright (C) 2020 Quint Daenen
 ;;
-;; Author: Quint Daenen <http://github/quint>
+;; Author: Quint Daenen <http://github/di-wu>
 ;; Maintainer: Quint Daenen <me@di-wu.be>
 ;; Keywords: PEGN major-mode
 ;;
@@ -42,18 +42,20 @@
    ; "octdig" "punct" "quotable" "sign" "upperhex" "upper" "visible" "ws" "alnum" "ascii"
    ; "blank" "cntrl" "graph" "print" "space" "word" "xdigit"
    ; "EndLine"
-   '("\\<\\(EndLine\\|a\\(?:l\\(?:num\\|pha\\(?:num\\)?\\)\\|ny\\|scii\\)\\|b\\(?:itdig\\|lank\\)\\|c\\(?:\\(?:ntr\\|ontro\\)l\\)\\|digit\\|graph\\|hexdig\\|lower\\(?:hex\\)?\\|octdig\\|p\\(?:\\(?:rin\\|unc\\)t\\)\\|quotable\\|s\\(?:ign\\|pace\\)\\|upper\\(?:hex\\)?\\|visible\\|w\\(?:ord\\|s\\)\\|xdigit\\)\\>" . font-lock-constant-face))
+   '("\\<\\(EndLine\\|a\\(?:l\\(?:num\\|pha\\(?:num\\)?\\)\\|ny\\|scii\\)\\|b\\(?:itdig\\|lank\\)\\|c\\(?:\\(?:ntr\\|ontro\\)l\\)\\|digit\\|graph\\|hexdig\\|lower\\(?:hex\\)?\\|octdig\\|p\\(?:\\(?:rin\\|unc\\)t\\)\\|quotable\\|s\\(?:ign\\|pace\\)\\|upper\\(?:hex\\)?\\|visible\\|w\\(?:ord\\|s\\)\\|xdigit\\)\\>" . font-lock-type-face))
   "Minimal highlighting expressions for PEGN mode.")
 
 (defvar pegn-font-lock-keywords pegn-font-lock-keywords-1
   "Default highlighting in PEGN mode.")
 
 (defun pegn-indent-line ()
+  ; TODO
   "Indent current line as PEGN code.")
 
 (defvar pegn-mode-syntax-table nil "Syntax table for pegn-mode.")
 (when (not pegn-mode-syntax-table)
   (setq pegn-mode-syntax-table (make-syntax-table))
+  (modify-syntax-entry ?\' "\"" pegn-mode-syntax-table)
   ;; Comment delimiters.
   (modify-syntax-entry ?\# "<" pegn-mode-syntax-table)
   (modify-syntax-entry ?\n ">" pegn-mode-syntax-table)
