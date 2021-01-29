@@ -19,3 +19,12 @@ Check out the repository, add it to your load path and configure Emacs to automa
 ```
 
 Restart Emacs or evaluate the statements with `C-x C-e`.
+
+### Tokens and Classes
+
+```elisp
+; use regexp-opt to generate the regex below.
+; 1. M-x eval-expression
+; 2. (regexp-opt '("LIST" "OF" "WORDS"))
+; 3. wrapped in < and > to indicate only surrounded by space or beginning/end-of-file.
+```
